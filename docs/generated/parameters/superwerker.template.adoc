@@ -1,0 +1,25 @@
+
+.Features
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Enable Budget Alarm for monthly AWS spendings
+(`IncludeBudget`)|`Yes`|NO_DESCRIPTION|Enable AWS Control Tower
+(`IncludeControlTower`)|`Yes`|NO_DESCRIPTION|Enable Amazon GuardDuty
+(`IncludeGuardDuty`)|`Yes`|NO_DESCRIPTION|Enable AWS Security Hub
+(`IncludeSecurityHub`)|`Yes`|NO_DESCRIPTION|Enable Automated Backups
+(`IncludeBackup`)|`Yes`|NO_DESCRIPTION|Enable Service Control Policies in AWS Organizations
+(`IncludeServiceControlPolicies`)|`Yes`|NO_DESCRIPTION
+|===
+.Domain Configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Domain for automated DNS configuration
+(`Domain`)|`**__Requires input__**`|Domain used for Rootmail feature|Subdomain for automated DNS configuration
+(`Subdomain`)|`aws`|Sub domain used for Rootmail feature
+|===
+.Advanced Configuration
+[width="100%",cols="16%,11%,73%",options="header",]
+|===
+|Parameter label (name) |Default value|Description|Prefix for CloudFormation Templates
+(`TemplateUrlPrefix`)|`**__Requires input__**`|NO_DESCRIPTION
+|===
