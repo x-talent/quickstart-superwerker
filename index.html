@@ -812,7 +812,7 @@ p.footer-text a{color:#d7d8d8}
 <li><a href="#_troubleshooting">Troubleshooting</a></li>
 <li><a href="#_parameter_reference">Parameter reference</a>
 <ul class="sectlevel2">
-<li><a href="#_launch_superwerker_the_open_source_solution_to_automate_the_setup_of_an_aws_cloud_environment_with_prescriptive_best_practices">Launch superwerker - the open-source solution to automate the setup of an AWS Cloud environment with prescriptive best practices</a></li>
+<li><a href="#_launch_superwerker">Launch superwerker</a></li>
 </ul>
 </li>
 <li><a href="#_send_us_feedback">Send us feedback</a></li>
@@ -1359,7 +1359,7 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </table>
 </div>
 <div class="sect2">
-<h3 id="_launch_superwerker_the_open_source_solution_to_automate_the_setup_of_an_aws_cloud_environment_with_prescriptive_best_practices">Launch superwerker - the open-source solution to automate the setup of an AWS Cloud environment with prescriptive best practices</h3>
+<h3 id="_launch_superwerker">Launch superwerker</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Features</caption>
 <colgroup>
@@ -1379,37 +1379,37 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable Budget Alarm for monthly AWS spendings
 (<code>IncludeBudget</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable Budget Alarm for monthly AWS spending</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable AWS Control Tower
 (<code>IncludeControlTower</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable AWS Control Tower</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable Amazon GuardDuty
 (<code>IncludeGuardDuty</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable Amazon GuardDuty</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable AWS Security Hub
 (<code>IncludeSecurityHub</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable AWS Security Hub</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable Automated Backups
 (<code>IncludeBackup</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable Automated Backups</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enable Service Control Policies in AWS Organizations
 (<code>IncludeServiceControlPolicies</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Yes</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable Service Control Policies in AWS Organizations</p></td>
 </tr>
 </tbody>
 </table>
@@ -1432,18 +1432,18 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 <td class="tableblock halign-left valign-top"><p class="tableblock">Domain for automated DNS configuration
 (<code>Domain</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Domain used for Rootmail feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Domain used for RootMail feature</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Subdomain for automated DNS configuration
 (<code>Subdomain</code>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sub domain used for Rootmail feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sub domain used for RootMail feature</p></td>
 </tr>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Advanced Configuration</caption>
+<caption class="title">Table 3. AWS Quick Start configuration</caption>
 <colgroup>
 <col style="width: 16%;">
 <col style="width: 11%;">
@@ -1458,10 +1458,22 @@ Region</code>, and <code>Quick Start S3 key prefix</code>. Changing these parame
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix for CloudFormation Templates
-(<code>TemplateUrlPrefix</code>)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong><em>Requires input</em></strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NO_DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 Bucket Name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 Key Prefix
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-superwerker/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), dots (.) and forward slash (/) and it should end with a forward slash (/).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 Bucket Region
+(<code>QSS3BucketRegion</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>us-east-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS Region where the Quick Start S3 bucket (QSS3BucketName) is hosted. When using your own bucket, you must specify this value.</p></td>
 </tr>
 </tbody>
 </table>
