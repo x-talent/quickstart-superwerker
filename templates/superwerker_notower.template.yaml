@@ -12,7 +12,7 @@ Metadata:
         default: Features
       Parameters:
       - IncludeBudget
-      - IncludeControlTower
+#      - IncludeControlTower
       - IncludeGuardDuty
       - IncludeSecurityHub
       - IncludeBackup
@@ -41,8 +41,8 @@ Metadata:
         default: Mail address used for important notification regarding your AWS account (leave empty for no notifications)
       IncludeBudget:
         default: Include AWS Budgets alarm
-      IncludeControlTower:
-        default: Include AWS Control Tower
+#      IncludeControlTower:
+#        default: Include AWS Control Tower
       IncludeGuardDuty:
         default: Include Amazon GuardDuty
       IncludeSecurityHub:
@@ -77,13 +77,13 @@ Parameters:
     Default: 'Yes'
     Type: String
     Description: Enable AWS Budgets alarm for monthly AWS spending
-  IncludeControlTower:
-    AllowedValues:
-      - 'Yes'
-      - 'No'
-    Default: 'Yes'
-    Type: String
-    Description: Enable AWS Control Tower
+#  IncludeControlTower:
+#    AllowedValues:
+#      - 'Yes'
+#      - 'No'
+#    Default: 'Yes'
+#    Type: String
+#    Description: Enable AWS Control Tower
   IncludeGuardDuty:
     AllowedValues:
       - 'Yes'
@@ -151,19 +151,10 @@ Conditions:
   UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-quickstart']
   IncludeNotifications: !Not [!Equals [ !Ref NotificationsMail, '' ]]
   IncludeBudget: !Equals [ !Ref IncludeBudget, 'Yes' ]
-  IncludeControlTower: !Equals [ !Ref IncludeControlTower, 'Yes' ]
-  IncludeGuardDuty: !And
-    - !Condition IncludeControlTower
-    - !Equals [ !Ref IncludeGuardDuty, 'Yes' ]
-  IncludeSecurityHub: !And
-    - !Condition IncludeControlTower
-    - !Equals [ !Ref IncludeSecurityHub, 'Yes' ]
-  IncludeBackup: !And
-    - !Condition IncludeControlTower
-    - !Equals [ !Ref IncludeBackup, 'Yes' ]
-  IncludeServiceControlPolicies: !And
-    - !Condition IncludeControlTower
-    - !Equals [ !Ref IncludeServiceControlPolicies, 'Yes' ]
+  IncludeGuardDuty: !Equals [ !Ref IncludeGuardDuty, 'Yes' ]
+  IncludeSecurityHub: !Equals [ !Ref IncludeSecurityHub, 'Yes' ]
+  IncludeBackup: !Equals [ !Ref IncludeBackup, 'Yes' ]
+  IncludeServiceControlPolicies: !Equals [ !Ref IncludeServiceControlPolicies, 'Yes' ]
 
 Resources:
   Budget:
@@ -176,14 +167,18 @@ Resources:
           - S3Region: !If [UsingDefaultBucket, !Sub '${AWS::Region}', !Ref QSS3BucketRegion]
             S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
 
-  ControlTower:
-    Condition: IncludeControlTower
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      TemplateURL: 'http://test.x-talent.cloud/stuff/control-tower.yaml'
-      Parameters:
-        AuditAWSAccountEmail: !GetAtt GeneratedAuditAWSAccountEmail.email
-        LogArchiveAWSAccountEmail: !GetAtt GeneratedLogArchiveAWSAccountEmail.email
+#  ControlTower:
+#    Condition: IncludeControlTower
+#    Type: AWS::CloudFormation::Stack
+#    Properties:
+#      TemplateURL:
+#        Fn::Sub:
+#          - 'https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/control-tower.yaml'
+#          - S3Region: !If [UsingDefaultBucket, !Sub '${AWS::Region}', !Ref QSS3BucketRegion]
+#            S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
+#      Parameters:
+#        AuditAWSAccountEmail: !GetAtt GeneratedAuditAWSAccountEmail.email
+#        LogArchiveAWSAccountEmail: !GetAtt GeneratedLogArchiveAWSAccountEmail.email
 
   GeneratedAuditAWSAccountEmail:
     Type: AWS::CloudFormation::CustomResource
@@ -297,7 +292,7 @@ Resources:
   Backup:
     Condition: IncludeBackup
     Type: AWS::CloudFormation::Stack
-    DependsOn: ControlTower
+#    DependsOn: ControlTower
     Properties:
       TemplateURL:
         Fn::Sub:
@@ -308,7 +303,7 @@ Resources:
   ServiceControlPolicies:
     Condition: IncludeServiceControlPolicies
     Type: AWS::CloudFormation::Stack
-    DependsOn: ControlTower
+#    DependsOn: ControlTower
     Properties:
       TemplateURL:
         Fn::Sub:
