@@ -180,11 +180,7 @@ Resources:
     Condition: IncludeControlTower
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL:
-        Fn::Sub:
-          - 'http://test.x-talent.cloud/stuff/control-tower.yaml'
-          - S3Region: !If [UsingDefaultBucket, !Sub '${AWS::Region}', !Ref QSS3BucketRegion]
-            S3Bucket: !If [UsingDefaultBucket, !Sub '${QSS3BucketName}-${AWS::Region}', !Ref QSS3BucketName]
+      TemplateURL: 'http://test.x-talent.cloud/stuff/control-tower.yaml'
       Parameters:
         AuditAWSAccountEmail: !GetAtt GeneratedAuditAWSAccountEmail.email
         LogArchiveAWSAccountEmail: !GetAtt GeneratedLogArchiveAWSAccountEmail.email
